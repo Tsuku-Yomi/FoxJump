@@ -14,6 +14,7 @@ public class ItemManager : MonoBehaviour
     void Awake() {
         if (instance == null) {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         } else {
             Destroy(this);
         }

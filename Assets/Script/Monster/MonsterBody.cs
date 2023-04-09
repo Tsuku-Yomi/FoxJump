@@ -12,7 +12,7 @@ public class MonsterBody : MonoBehaviour
         if (isDestroy) return;
         else if (collision.gameObject.CompareTag("Player")) {
             var body = collision.gameObject.GetComponent<PlayerBody>();
-            if (body.isInDrop()) {
+            if (body.isInDrop(transform.position.y)) {
                 this.BeAttack();
                 body.mov.JumpUp();
             } else {

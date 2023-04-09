@@ -10,7 +10,7 @@ public class PlayerBody : MonoBehaviour
 
     public PlayerMove mov;
     Rigidbody2D rigbody;
-    public float dropPara=-0.1f;
+    public float charaFootOffset=-0.5f;
     public float YDeadLine = -10;
     bool outofWorld = false;
 
@@ -18,6 +18,8 @@ public class PlayerBody : MonoBehaviour
     {
         mov = GetComponent<PlayerMove>();
         rigbody = GetComponent<Rigidbody2D>();
+        hitEvent += CallManager;
+        CallManager(-3);
     }
 
     private void Update() {
@@ -27,12 +29,16 @@ public class PlayerBody : MonoBehaviour
         }
     }
 
-    public bool isInDrop() {
-        return rigbody.velocity.y < dropPara;
+    public bool isInDrop(float y) {
+        return charaFootOffset + transform.position.y > y;
     }
 
     public void BeHurt(Transform hitTrans,int dmg) {
         mov.BeShock(hitTrans.position.x < transform.position.x);
         if (hitEvent != null) hitEvent(dmg);
+    }
+    
+    static void CallManager(int dmg) {
+        ItemManager.Instance.AddItem("life", -dmg);
     }
 }

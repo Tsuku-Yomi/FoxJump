@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 6851011243529791201}
   - component: {fileID: 6851011243529791207}
   - component: {fileID: 6851011243529791206}
-  m_Layer: 0
+  - component: {fileID: 6350812299895103573}
+  m_Layer: 8
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -150,9 +151,10 @@ MonoBehaviour:
   speedX: 6
   jumpForce: 10
   GroundTimeSet: 3
+  ShockTime: 0.5
+  ShockPower: 4
   jumpMaterial2D: {fileID: 6200000, guid: c1e6120cc158cb7478985920a55dc41d, type: 2}
   groundMaterial2D: {fileID: 6200000, guid: d2f1441f2f9412a4b8a022a2e0f19b46, type: 2}
-  InGroundTime: 0
 --- !u!95 &6851011243529791206
 Animator:
   serializedVersion: 4
@@ -173,3 +175,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6350812299895103573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6851011243529791212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c4311c0b1c2f9468bc195a2ff30bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mov: {fileID: 0}
+  charaFootOffset: -0.5
+  YDeadLine: -10
