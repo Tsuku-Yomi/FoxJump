@@ -12,6 +12,7 @@ public class PlayerBody : MonoBehaviour
     Rigidbody2D rigbody;
     public float charaFootOffset=-0.5f;
     public float YDeadLine = -10;
+    
     bool outofWorld = false;
 
     void Start()
@@ -33,8 +34,13 @@ public class PlayerBody : MonoBehaviour
         return charaFootOffset + transform.position.y > y;
     }
 
-    public void BeHurt(Transform hitTrans,int dmg) {
-        mov.BeShock(hitTrans.position.x < transform.position.x);
+    public void BeHurt(Transform hitTrans,int dmg,float power=1) {
+        mov.BeShock(new Vector2(hitTrans.position.x < transform.position.x ? power:-power,0));
+        if (hitEvent != null) hitEvent(dmg);
+    }
+
+    public void BeHurtByTrap(bool up,int dmg,float power=1) {
+        mov.BeShock(new Vector2(0, up ? power : -power));
         if (hitEvent != null) hitEvent(dmg);
     }
     

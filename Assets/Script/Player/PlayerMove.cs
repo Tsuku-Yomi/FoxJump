@@ -96,9 +96,10 @@ public class PlayerMove : MonoBehaviour {
         }
     }
 
-    public void BeShock(bool toLeft) {
+    public void BeShock(Vector2 axis) {
         animator.SetBool("onShock", true);
         beShockTime = ShockTime;
-        rigidbody2d.velocity = new Vector2(ShockPower * (toLeft ? 1 : -1), rigidbody2d.velocity.y);
+        rigidbody2d.velocity = new Vector2(ShockPower * axis.x, ShockPower * axis.y);
     }
+
 }
