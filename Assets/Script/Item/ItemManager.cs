@@ -18,6 +18,7 @@ public class ItemManager : MonoBehaviour
         } else {
             Destroy(this);
         }
+        ItemCountMap.Add("life", 3);
     }
 
     public void RegisterCountChangeEvent(string itemName,ItemCountChangeHandler handler) {
@@ -25,6 +26,12 @@ public class ItemManager : MonoBehaviour
             CountChangeEventMap[itemName] += handler;
         } else {
             CountChangeEventMap.Add(itemName, handler);
+        }
+    }
+
+    public void UnregEvent(string itemName, ItemCountChangeHandler handler) {
+        if (CountChangeEventMap.ContainsKey(itemName)) {
+            CountChangeEventMap[itemName] -= handler;
         }
     }
 

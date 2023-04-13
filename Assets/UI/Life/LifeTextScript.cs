@@ -11,9 +11,14 @@ public class LifeTextScript : MonoBehaviour
     {
         text = GetComponent<Text>();
         ItemManager.Instance.RegisterCountChangeEvent("life", getLifeChange);
+        ItemManager.Instance.AddItem("life", 0);
     }
 
     void getLifeChange(int life) {
         text.text = life.ToString();
+    }
+
+    private void OnDestroy() {
+        ItemManager.Instance.UnregEvent("life", getLifeChange);
     }
 }

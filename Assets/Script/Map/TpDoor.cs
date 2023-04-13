@@ -19,7 +19,7 @@ public class TpDoor : MonoBehaviour
     }
 
     public void tpPlayer() {
-        if (targetCollider != null) {
+        if (targetCollider != null&&confiner2D!=null) {
             confiner2D.m_BoundingShape2D = targetCollider;
         }
         player.transform.position=targetTransform.position;
