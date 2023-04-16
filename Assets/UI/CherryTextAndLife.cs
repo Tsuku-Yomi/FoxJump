@@ -14,6 +14,7 @@ public class CherryTextAndLife : MonoBehaviour
     }
 
     void getCherryChange(int cherry) {
+        if (cherry >= 100) ItemManager.Instance.AddItem("cherry", cherry % 100 - cherry);
         text.text = cherry.ToString();
     }
 

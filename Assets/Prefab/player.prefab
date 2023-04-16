@@ -153,8 +153,12 @@ MonoBehaviour:
   GroundTimeSet: 3
   ShockTime: 0.5
   ShockPower: 4
-  jumpMaterial2D: {fileID: 6200000, guid: c1e6120cc158cb7478985920a55dc41d, type: 2}
+  wallCheckLenght: 0.7
+  wallJumpSpeed: 6
+  wallFallSpeed: 3
+  jumpMaterial2D: {fileID: 6200000, guid: 6edfc3974194e744a8797ab7dc75ebb8, type: 2}
   groundMaterial2D: {fileID: 6200000, guid: d2f1441f2f9412a4b8a022a2e0f19b46, type: 2}
+  DownTime: 1
 --- !u!95 &6851011243529791206
 Animator:
   serializedVersion: 4
@@ -190,3 +194,4 @@ MonoBehaviour:
   mov: {fileID: 0}
   charaFootOffset: -0.5
   YDeadLine: -10
+  GhostTime: 1

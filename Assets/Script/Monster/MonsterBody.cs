@@ -30,13 +30,6 @@ public class MonsterBody : MonoBehaviour
         }
     }
 
-    private void Update() {
-        if (outofWorld&&transform.position.y < YDeadLine) {
-            this.BeAttack();
-            outofWorld = false;
-        }
-    }
-
     virtual protected void BeAttack() {
         GetComponent<Animator>().SetTrigger("Destroy");
         collider2d.isTrigger = true;
