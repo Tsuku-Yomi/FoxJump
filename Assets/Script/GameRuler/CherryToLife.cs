@@ -5,6 +5,7 @@ using UnityEngine;
 public class CherryToLife : MonoBehaviour
 {
     public int addtime = 5;
+    public int getScore = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,7 @@ public class CherryToLife : MonoBehaviour
         if (cherry % addtime == 0) {
             ItemManager.Instance.AddItem("life", 1);
         }
+        ItemManager.Instance.AddItem("score", getScore);
     }
 
     private void OnDestroy() {

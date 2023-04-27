@@ -9,7 +9,7 @@ public class MonsterBody : MonoBehaviour
     public float YDeadLine = -10;
     public float ShockPower = 2;
     public float invTime = 1f;
-    bool outofWorld = false;
+    public int getScore=100;
     Collider2D collider2d;
     private void Start() {
         collider2d = GetComponent<Collider2D>();
@@ -21,6 +21,7 @@ public class MonsterBody : MonoBehaviour
             var body = collision.gameObject.GetComponent<PlayerBody>();
             if (body.isInDrop(transform.position.y)) {
                 this.BeAttack();
+                ItemManager.Instance.AddItem("score", getScore);
                 body.mov.JumpUp();
             } else {
                 body.BeHurt(transform, dmg,ShockPower);
